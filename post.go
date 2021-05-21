@@ -24,6 +24,8 @@ func Post() {
 
 	var sampleStructFromResponse sampleResponse
 
+	defer resp.Body.Close()
+
 	decodeError := json.NewDecoder(resp.Body).Decode(&sampleStructFromResponse)
 
 	checkError(decodeError)
